@@ -1,3 +1,4 @@
+
 @charset "utf-8";
 /* CSS Document */
 
@@ -100,10 +101,14 @@ nav h1 a {
 }
 /* ====================== Map ====================== */
 #map {
-  height: 400px;
-  width: 100%;
+  margin: auto;
+  height: 300px;
+  width: 70%;
   background-color: #ccc;
 }
+
+
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
@@ -131,16 +136,6 @@ nav h1 a {
   padding: 0 10px;
   width: 200px;
 }
-
-/*media queries for responsiveness
-increase the size of the filter only in smaller screens*/
-/*@media screen and (min-width: 320px) and (max-width: 425px){
-  .filter-options{
-    overflow: auto;
-    height: 125px;
-  }
-}*/
-
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
@@ -200,12 +195,6 @@ increase the size of the filter only in smaller screens*/
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-}
-
-@media screen and (min-width: 375px) {
- /* #restaurant-list {
-    position: relative;*/
-  }
 }
 
 /* ====================== Restaurant Details ====================== */
@@ -307,4 +296,63 @@ increase the size of the filter only in smaller screens*/
 }
 #restaurant-hours td {
   color: #666;
+}
+
+/*====Media queries=====*/
+
+@media screen and (max-width: 450px) {
+  .inside header {
+    width: 100%;
+    position: static;
+  }
+
+  .inside #map-container {
+    position: static;
+    width: 100%;
+    height: 270px;
+  }
+
+  #breadcrumb {
+    width: 100%;
+    align-items: center;
+  }
+
+  #restaurant-name {
+    margin: 10px 0 10px;
+    font-size: 20px;
+  }
+
+  #restaurant-container {
+    width: auto;
+
+  }
+
+  #restaurant-hours {
+    width: 260px;
+  }
+
+  #reviews-container {
+    margin: auto;
+    width: auto;
+    padding: 10px 15px 10px;
+    margin-right: 20px;
+  }
+
+  .inside #footer {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 451px) {
+  .inside #map-container {
+    width: 45%;
+  }
+
+  #reviews-container {
+    padding: 10px 15px 10px;
+  }
+
+  .inside #footer {
+    position: static;
+  }
 }
