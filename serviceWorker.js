@@ -25,8 +25,7 @@ const precacheURLS = [
 	'./img/10.jpg'
 ];
 
-// install handler takes care of precaching asets
-// we always need
+// install handler takes care of precaching asets we always need
 self.addEventListener('install', event => {
 	event.waitUntil(
 		caches.open(precache).then(cache => {
@@ -51,4 +50,20 @@ self.addEventListener('activate', event => {
 		})
 	);
 })
+
+// fetch event
+// credit: https://developers.google.com/web/fundamentals/primers/service-workers/#cache_and_return_requests
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  );
+});
 
